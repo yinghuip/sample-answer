@@ -1,0 +1,59 @@
+<form class="example-form">
+  <h1>using template driven form</h1>
+  <p></p>
+  <h3>1. Display validation errror when selected User's timezone is null</h3>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>User</mat-label>
+      <mat-select required 
+      [(ngModel)]="userName" NullTimeZone 
+      [source]="users" #user="ngModel" name="user">
+        <mat-option>
+          -
+        </mat-option>
+        <mat-option *ngFor="let item of users" [value]="item.UserName">
+          {{item.UserName}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="user.errors?.TimeZoneNull">Null Time zone</mat-error>
+      <mat-error *ngIf="user.errors?.required">Required</mat-error>
+    </mat-form-field>
+  </p>
+
+  <p></p>
+  <p></p>
+  <h3>2. distinct drop down list</h3>
+  Count : {{depot?.length}}
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Depot</mat-label>
+      <mat-select required [(ngModel)]="selectDepot" #depotCtrl="ngModel" name="depot">
+        <mat-option *ngFor="let item of depot" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="depotCtrl.errors?.required"> required</mat-error>
+    </mat-form-field>
+  </p>
+
+  <p></p>
+  <p></p>
+  <h3>
+    3.Disabled save button when form is invalid and display validation error
+    (e.g. required, TimeZone null)
+  </h3>
+  <p>
+    <button mat-flat-button color="primary">save</button>
+  </p>
+  <p></p>
+  <h3>
+    4.make secondSampleHttpCall after firstSampleHttpCall complete. expected result (0,1,2,3, OK)
+  </h3>
+  <mat-form-field>
+  <textarea matInput [value]="textAreaValue" matAutosizeMinRows="10" cdkTextareaAutosize></textarea>
+  </mat-form-field>
+</form>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,4 +1,4 @@
-<form class="example-form">
+<form class="example-form" #editForm="ngForm">
   <h1>using template driven form</h1>
   <p></p>
   <h3>1. Display validation errror when selected User's timezone is null</h3>
@@ -43,7 +43,7 @@
     (e.g. required, TimeZone null)
   </h3>
   <p>
-    <button mat-flat-button color="primary">save</button>
+    <button mat-flat-button color="primary" [disabled]="!!editForm?.invalid">save</button>
   </p>
   <p></p>
   <h3>

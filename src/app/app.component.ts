@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { concat, Subject } from "rxjs";
-import { concatMap, exhaustMap,  filter,    finalize,  flatMap,    map, switchMap, takeUntil,  takeWhile,    tap } from "rxjs/operators";
+import { concatMap, exhaustMap,  filter,    finalize,  flatMap,    map, takeUntil,  takeWhile,    tap } from "rxjs/operators";
 import { SampleServiceService } from "../sample-service.service";
 
 /**
